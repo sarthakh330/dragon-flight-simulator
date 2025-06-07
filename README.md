@@ -3,42 +3,33 @@
 
 # Dragon Flight Simulator 🐉✈️
 
-A sophisticated browser-based 2D flight game built with vanilla JavaScript and HTML5 Canvas. Navigate through a dynamic sky environment, engaging with dragons and volcanoes while mastering realistic flight physics.
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen?style=for-the-badge&logo=github)](https://sarthakh330.github.io/dragon-flight-simulator/)
 
-## 🎮 Key Features
+**Play Instantly:** Click the badge above or visit [https://sarthakh330.github.io/dragon-flight-simulator/](https://sarthakh330.github.io/dragon-flight-simulator/) to launch the game in your browser.
 
-- **Advanced Physics Engine**: Realistic flight controls with gravity, lift, and momentum
-- **Dynamic Environment**: 
-  - AI-driven dragons with unique behaviors
-  - Volcanic eruptions with particle systems
-  - Procedurally generated clouds and weather effects
-- **Technical Highlights**:
-  - Pure JavaScript implementation (no frameworks)
-  - Optimized Canvas rendering
-  - Responsive design with adaptive difficulty
-  - Local storage leaderboard system
+Dragon Flight Simulator is a browser-based 2D action game engineered with vanilla JavaScript and HTML5 Canvas. Players control an aircraft navigating a procedurally generated environment filled with dynamic hazards, including dragons, volcanoes, fireballs, and lava. The game features real-time physics, adaptive difficulty, and responsive controls. All state is managed client-side, with persistent high scores via local storage. No external libraries or frameworks are used.
 
-## 🎯 Quick Start
+## Features
+- Realistic flight physics: gravity, lift, and momentum
+- Multiple enemy types: dragons, fire dragons, volcanoes, fireballs, lava balls
+- Missile-based combat and precise collision detection
+- Procedural generation of obstacles and environmental elements (clouds, trees, wind)
+- Adaptive difficulty and user-controlled speed
+- Persistent high score tracking (local storage)
+- Fully responsive design for all screen sizes
+- Modular, maintainable codebase
 
-1. Open `index.html` in a modern browser
-2. Press **Space** to start
-3. Use **Up Arrow** to fly, **Space** to fire missiles
-4. Adjust speed with **+/-** keys
+## Controls
+- Space: Start game / Fire missiles
+- Up Arrow: Ascend
+- + / -: Adjust game speed
 
-## 🛠️ Technical Stack
-
-- **Frontend**: Vanilla JavaScript, HTML5 Canvas
-- **Architecture**: Object-oriented design with event-driven game loop
-- **Storage**: Local storage for persistent high scores
-- **Performance**: Optimized collision detection and particle systems
-
-## 🔮 Roadmap
-
-- Multiplayer capabilities
-- Mobile touch controls
-- Enhanced visual effects
-- Sound system integration
+## Technical Stack
+- JavaScript (ES6+), HTML5 Canvas, CSS3
+- No dependencies or frameworks
 
 ---
+
+Built for performance, clarity, and technical rigor.
 
 *Built with modern web technologies and a focus on performance* 
