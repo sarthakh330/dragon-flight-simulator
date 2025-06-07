@@ -5,13 +5,110 @@
 }
 
 body {
-    background-color: #2A363B;
+    background: linear-gradient(135deg, #2A363B 0%, #1a2428 50%, #2A363B 100%);
     font-family: 'Arial', sans-serif;
     overflow: hidden;
     height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+}
+
+/* Animated background particles */
+.background-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(254, 206, 168, 0.1);
+    border-radius: 50%;
+    animation: float 8s infinite ease-in-out;
+}
+
+.particle:nth-child(odd) {
+    background: rgba(153, 184, 152, 0.08);
+    animation-duration: 12s;
+    animation-delay: -2s;
+}
+
+.particle:nth-child(3n) {
+    background: rgba(255, 132, 124, 0.06);
+    animation-duration: 15s;
+    animation-delay: -5s;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px) translateX(0px) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-100px) translateX(50px) rotate(180deg);
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 1;
+    }
+}
+
+/* Animated background waves */
+.background-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to top, rgba(153, 184, 152, 0.1), transparent);
+    overflow: hidden;
+    z-index: 0;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(254, 206, 168, 0.05), 
+        transparent, 
+        rgba(153, 184, 152, 0.05), 
+        transparent
+    );
+    animation: wave 20s infinite linear;
+}
+
+.wave:nth-child(2) {
+    animation-duration: 25s;
+    animation-delay: -5s;
+    opacity: 0.5;
+}
+
+.wave:nth-child(3) {
+    animation-duration: 30s;
+    animation-delay: -10s;
+    opacity: 0.3;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(-50%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
 
 .game-container {
@@ -22,17 +119,73 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 2;
 }
 
 h1 {
     color: #FECEA8;
-    text-shadow: 0 0 20px rgba(254, 206, 168, 0.4);
+    text-shadow: 
+        0 0 20px rgba(254, 206, 168, 0.4),
+        0 0 40px rgba(254, 206, 168, 0.2),
+        0 0 60px rgba(254, 206, 168, 0.1);
     margin-bottom: 20px;
     font-size: 4em;
     font-weight: 300;
     z-index: 2;
     letter-spacing: 8px;
     text-transform: uppercase;
+    animation: titlePulse 4s infinite ease-in-out, titleFloat 6s infinite ease-in-out;
+    position: relative;
+}
+
+h1::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(254, 206, 168, 0.1) 0%, transparent 70%);
+    border-radius: 20px;
+    z-index: -1;
+    animation: titleGlow 3s infinite ease-in-out alternate;
+}
+
+@keyframes titlePulse {
+    0%, 100% {
+        transform: scale(1);
+        text-shadow: 
+            0 0 20px rgba(254, 206, 168, 0.4),
+            0 0 40px rgba(254, 206, 168, 0.2),
+            0 0 60px rgba(254, 206, 168, 0.1);
+    }
+    50% {
+        transform: scale(1.02);
+        text-shadow: 
+            0 0 25px rgba(254, 206, 168, 0.6),
+            0 0 50px rgba(254, 206, 168, 0.3),
+            0 0 75px rgba(254, 206, 168, 0.15);
+    }
+}
+
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+@keyframes titleGlow {
+    0% {
+        opacity: 0.3;
+        transform: scale(0.95);
+    }
+    100% {
+        opacity: 0.6;
+        transform: scale(1.05);
+    }
 }
 
 #startButton {
@@ -40,21 +193,81 @@ h1 {
     font-size: 1.4em;
     background: linear-gradient(45deg, #E84A5F, #FF847C);
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     color: white;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 2;
     margin-bottom: 20px;
     font-weight: 300;
     letter-spacing: 2px;
     text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(232, 74, 95, 0.3);
+    box-shadow: 
+        0 4px 15px rgba(232, 74, 95, 0.3),
+        0 0 0 0 rgba(232, 74, 95, 0.4);
+    position: relative;
+    overflow: hidden;
+    animation: buttonFloat 4s infinite ease-in-out;
+}
+
+#startButton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+#startButton:hover::before {
+    left: 100%;
 }
 
 #startButton:hover {
-    transform: scale(1.05) translateY(-2px);
-    box-shadow: 0 6px 20px rgba(232, 74, 95, 0.4);
+    transform: scale(1.05) translateY(-3px);
+    box-shadow: 
+        0 8px 25px rgba(232, 74, 95, 0.4),
+        0 0 0 8px rgba(232, 74, 95, 0.1);
+    background: linear-gradient(45deg, #ff5a73, #ff9a8a);
+}
+
+#startButton:active {
+    transform: scale(0.98) translateY(-1px);
+    transition: all 0.1s;
+}
+
+@keyframes buttonFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Subtle instruction text animation */
+.instructions {
+    color: rgba(254, 206, 168, 0.7);
+    font-size: 1.1em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 20px;
+    animation: instructionsFade 3s infinite ease-in-out;
+    z-index: 2;
+}
+
+@keyframes instructionsFade {
+    0%, 100% {
+        opacity: 0.7;
+        transform: translateY(0px);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-2px);
+    }
 }
 
 canvas {
@@ -64,4 +277,34 @@ canvas {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom, #2A363B, #2A363B 40%, #99B898);
-} 
+    z-index: 1;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5em;
+        letter-spacing: 4px;
+    }
+    
+    #startButton {
+        font-size: 1.2em;
+        padding: 12px 30px;
+    }
+    
+    .instructions {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+        letter-spacing: 2px;
+    }
+    
+    #startButton {
+        font-size: 1em;
+        padding: 10px 25px;
+    }
+}

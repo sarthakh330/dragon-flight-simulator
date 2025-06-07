@@ -7,11 +7,22 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Animated background elements -->
+    <div class="background-particles" id="particles"></div>
+    <div class="background-waves">
+        <div class="wave"></div>
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+    
     <div class="game-container">
         <h1>Fly the Plane!</h1>
         <button id="startButton">Start Game</button>
+        <div class="instructions">Press Space to begin your journey</div>
         <canvas id="gameCanvas"></canvas>
     </div>
+    
+    <script src="particles.js"></script>
     <script src="game.js"></script>
 </body>
-</html> 
+</html>
