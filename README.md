@@ -1,6 +1,5 @@
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen?style=for-the-badge&logo=github)](https://sarthakh330.github.io/dragon-flight-simulator/)
 
-![Game Screenshot](screenshot.png)
 
 # Dragon Flight Simulator 🐉✈️
 
