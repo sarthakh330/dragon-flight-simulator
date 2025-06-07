@@ -1,3 +1,7 @@
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-brightgreen?style=for-the-badge&logo=github)](https://sarthakh330.github.io/dragon-flight-simulator/)
+
+![Game Screenshot](screenshot.png)
+
 # Dragon Flight Simulator 🐉✈️
 
 A sophisticated browser-based 2D flight game built with vanilla JavaScript and HTML5 Canvas. Navigate through a dynamic sky environment, engaging with dragons and volcanoes while mastering realistic flight physics.
